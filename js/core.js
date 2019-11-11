@@ -415,7 +415,7 @@ function get_bit_capacity() {
 
 function lock_bits_production() {
 	game.options.locked_bits_production = !game.options.locked_bits_production
-	document.getElementById("lock_bits_production").textContent = "Locked bits production: " + (game.options.locked_bits_production ? "ON" : "OFF")
+	document.getElementById("lock_bits_production").textContent = "Lock bit production: " + (game.options.locked_bits_production ? "ON" : "OFF")
 }
 
 function get_byte_production() {
@@ -498,10 +498,10 @@ function inject_data(id) {
 	if (game.computers.unlocked) if (is_autobuyer_on(id + 13)) if (game.computers[id].exp + game.files[id].bits > get_level_requirement(id) && !game.computers[id].is_server) computer_dissolve(id, true)
 	update_file(id)
 	if (game.options.locked_bits_production) document.getElementById("produce_bits").textContent = "Producing"
-	if (tab_name == "files") document.getElementById("total_file_boost").innerHTML = "<b>Total multiplier on bit and byte productions</b>: " + format(get_total_file_boost(), 1) + "x"
+	if (tab_name == "files") document.getElementById("total_file_boost").innerHTML = "<b>Total multiplier on bit and byte production</b>: " + format(get_total_file_boost(), 1) + "x"
 	if (tab_name == "computers") {
 		if (game.computers.unlocked) update_select_file_button(id)
-		else document.getElementById("total_file_boost_computers").innerHTML = "<b>Total multiplier on bit and byte productions</b>: " + format(get_total_file_boost(), 1) + "x"
+		else document.getElementById("total_file_boost_computers").innerHTML = "<b>Total multiplier on bit and byte production</b>: " + format(get_total_file_boost(), 1) + "x"
 	}
 	if (tab_name == "statistics") update_tab_on_switch("statistics")
 }
@@ -592,7 +592,7 @@ function computer_dissolve(comp, auto) {
 		if (tab_name == "transfer") {
 			var total = 0
 			if (game.computers.unlocked) for (var comp=1; comp<5; comp++) total += game.computers[comp].level
-			document.getElementById("total_computer_levels").innerHTML = "<b>Total computer levels</b>: " + total
+			document.getElementById("total_computer_levels").innerHTML = "<b>Total computer level</b>: " + total
 		}
 	}
 	if (tab_name == "upgrades") {
@@ -667,7 +667,7 @@ function transfer() {
 function update_words_display() {
 	if (game.statistics.times_transfer > 0) {
 		document.getElementById("words_div").style.display = ""
-		document.getElementById("words_multiplier").textContent = format(get_words_boost(), 1) + "x on productions & bit capacity"
+		document.getElementById("words_multiplier").textContent = format(get_words_boost(), 1) + "x on production & bit capacity"
 		document.getElementById("automation").style.display = ""
 	} else {
 		document.getElementById("words_div").style.display = "none"
@@ -803,7 +803,7 @@ function dissolve_for_sxp(comp) {
 		if (tab_name == "transfer") {
 			var total = 0
 			if (game.computers.unlocked) for (var comp=1; comp<5; comp++) total += game.computers[comp].level
-			document.getElementById("total_computer_levels").innerHTML = "<b>Total computer levels</b>: " + total
+			document.getElementById("total_computer_levels").innerHTML = "<b>Total computer level</b>: " + total
 		}
 	}
 	update_computer(comp)
