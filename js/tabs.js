@@ -113,7 +113,7 @@ function update_tab_on_switch(id) {
 		document.getElementById("theme").textContent = "Theme: " + get_theme_name()
 		document.getElementById("theme_menu").style.display = "none"
 		document.getElementById("notation").textContent = "Notation: " + game.options.notation
-		document.getElementById("lock_bits_production").textContent = "Locked bits production: " + (game.options.locked_bits_production ? "ON" : "OFF")
+		document.getElementById("lock_bits_production").textContent = "Lock bits production: " + (game.options.locked_bits_production ? "ON" : "OFF")
 		document.getElementById("exported_save").style.display = "none"
 	}
 }
