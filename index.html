@@ -41,10 +41,10 @@
 		<div class="box right">
 			<div class="boxInside">
 				<div class="tab" id="tab_stuck" style="display: block">
-					If you are seeing this sentence for few seconds, please reload or export your save!<br>
+					If this text doesn't disappear after a few seconds, something has gone wrong. Please reload or export your save!<br>
 					<button onclick="document.location.reload(true)">Reload</button>
 					<button onclick="export_save_safe()">Export</button>
-					<div id='exported_save_safe'>Here is your exported save. You can share it for reporting bugs.<br><textarea id='exported_save_safe_text' readonly></textarea></div>
+					<div id='exported_save_safe'>Save has been exported. Store it somewhere safe or report any bugs in the game with this save.<br><textarea id='exported_save_safe_text' readonly></textarea></div>
 				</div>
 				<div class="tab" id="tab_upgrades">
 					<button onclick="max_upgrades()">Max upgrades</button><br>
@@ -64,7 +64,7 @@
 						<b style="font-size: 48px">Unlock files?</b><br>
 						<button class="unlock_button" onclick="unlock_files()">Cost: 64 bytes</button>
 						<div id="perm_unlock_files">
-							<b>Or are you want to perm-unlock files?</b><br>
+							<b>Permanently unlock files? (Will persist on transfer)</b><br>
 							<button class="unlock_button" onclick="perm_unlock_files()">Cost: 16 words</button>
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 						<button class="unlock_button" onclick="unlock_computers()">512x multiplier</button>
 						<div id="total_file_boost_computers"></div>
 						<div id="perm_unlock_computers">
-							<b>Or are you want to perm-unlock computers?</b><br>
+							<b>Permanently unlock computers? (Will persist on transfer)</b><br>
 							<button class="unlock_button" onclick="perm_unlock_computers()">Cost: 256 words</button>
 						</div>
 					</div>
@@ -207,7 +207,7 @@
 						<td><button class="option" id="offline_progress" onclick="toggle_offline_progress()"></button></td>
 						<td></td>
 					</tr></table>
-					<div id='exported_save'>Here is your exported save. You can share it for reporting bugs.<br><textarea id='exported_save_text' readonly></textarea></div>
+					<div id='exported_save'>Save has been exported. Store it somewhere safe or report any bugs in the game with this save.<br><textarea id='exported_save_text' readonly></textarea></div>
 					<b style="font-size: 48px">Display</b><br>
 					<table align=center><tr>
 						<td><button class="option" id="tick_rate" onclick="change_tick_rate()"></button></td>
