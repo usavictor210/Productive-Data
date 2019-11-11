@@ -117,7 +117,7 @@ function game_tick() {
 	if (tab_name == "transfer") {
 		document.getElementById("next_word_gain").textContent = ""
 		if (total < transfer_requirement) document.getElementById("transfer").textContent = "You need " + (transfer_requirement - total) + " more levels to transfer."
-		else if (game.statistics.times_transfer == 0) document.getElementById("transfer").textContent = "Reset the game and transfer for words!"
+		else if (game.statistics.times_transfer == 0) document.getElementById("transfer").textContent = "Reset the game in exchange for words."
 		else {
 			document.getElementById("transfer").innerHTML = "Transfer for " + format(words_gain) + " words.<br>" + format(words_gain_rate / 60, 1) + "/min<br>Peak: " + format(game.transfer.words_gain_rate_peak / 60, 1) + "/min"
 			if (words_gain < 128) document.getElementById("next_word_gain").innerHTML = "<b>Bytes left for next word gain for your next transfer</b>: " + format(Math.pow((words_gain + 1) * 128, 8) - game.bytes)
@@ -508,7 +508,7 @@ function inject_data(id) {
 
 function select_percentage(percentage) {
 	game.files.percentage = percentage
-	document.getElementById("percentage_to_be_injected").innerHTML = "<b>Percentage of data to be injected</b>: " + (Math.round(percentage * 10) / 10) + "%"
+	document.getElementById("percentage_to_be_injected").innerHTML = "<b>Selected percentage of data injected</b>: " + (Math.round(percentage * 10) / 10) + "%"
 }
 
 function get_file_boost(file) {
@@ -693,7 +693,7 @@ function inject_words(id) {
 
 function inject_equally() {
 	if (game.transfer.words < 1) return
-	if (game.transfer.words < 8) if (!confirm("I recommend you to get more words. But, are you sure you want to do so?")) return
+	if (game.transfer.words < 8) if (!confirm("It is recommended to get more words before you can inject words equally (you should have at least 8). Are you sure you want to do this?")) return
 	for (var file=1; file<9; file++) {
 		var add = Math.ceil(game.transfer.words / (9 - file))
 		game.transfer.words = Math.max(game.transfer.words - add, 0)
