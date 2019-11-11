@@ -415,7 +415,7 @@ function get_bit_capacity() {
 
 function lock_bits_production() {
 	game.options.locked_bits_production = !game.options.locked_bits_production
-	document.getElementById("lock_bits_production").textContent = "Lock bit production: " + (game.options.locked_bits_production ? "ON" : "OFF")
+	document.getElementById("lock_bits_production").textContent = "Lock bits production: " + (game.options.locked_bits_production ? "ON" : "OFF")
 }
 
 function get_byte_production() {
@@ -627,7 +627,7 @@ function update_computers_data() {
 
 //Stage 1-4: Transfer
 function get_words_gain() {
-	return Math.floor(Math.pow(game.bytes, 0.125) / 128)
+	return Math.floor(Math.pow(game.bytes, 0.125) / 100)
 }
 
 function transfer() {
@@ -676,7 +676,7 @@ function update_words_display() {
 }
 
 function get_words_boost() {
-	if (game.statistics.times_transfer > 0) return Math.log10(game.transfer.words * 4 + 1) + 1
+	if (game.statistics.times_transfer > 0) return Math.log10(game.statistics.total_words * 4 + 1) + 1
 	return 1
 }
 
@@ -693,7 +693,7 @@ function inject_words(id) {
 
 function inject_equally() {
 	if (game.transfer.words < 1) return
-	if (game.transfer.words < 8) if (!confirm("It is recommended to get more words before you can inject words equally (you should have at least 8). Are you sure you want to do this?")) return
+	if (game.transfer.words < 8) if (!confirm("It is recommended to get more words before you can inject words equally (you should have at least 8 to give an effect to all files). Are you sure you want to do this?")) return
 	for (var file=1; file<9; file++) {
 		var add = Math.ceil(game.transfer.words / (9 - file))
 		game.transfer.words = Math.max(game.transfer.words - add, 0)
