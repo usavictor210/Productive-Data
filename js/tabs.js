@@ -14,13 +14,13 @@ function update_tab_on_switch(id) {
 		if (game.files.unlocked) {
 			document.getElementById("tab_locked_files").style.display = "none"
 			document.getElementById("tab_unlocked_files").style.display = "block"
-			document.getElementById("percentage_to_be_injected").innerHTML = "<b>Percentage of data to be injected</b>: " + (Math.round(game.files.percentage * 10) / 10) + "%"
+			document.getElementById("percentage_to_be_injected").innerHTML = "<b>Selected percentage of data injected</b>: " + (Math.round(game.files.percentage * 10) / 10) + "%"
 			for (var file=1; file<9; file++) {
 				update_file(file)
 				document.getElementById("file_" + file + "_button").textContent = "Inject" + (game.statistics.times_transfer > 0 ? " bits" : "")
 				document.getElementById("inject_words_" + file).style.display = game.statistics.times_transfer > 0 ? "" : "none"
 			}
-			document.getElementById("total_file_boost").innerHTML = "<b>Total multiplier on bit and byte productions</b>: " + format(get_total_file_boost(), 1) + "x"
+			document.getElementById("total_file_boost").innerHTML = "<b>Total multiplier on bit and byte production</b>: " + format(get_total_file_boost(), 1) + "x"
 			document.getElementById("inject_equally_button").style.display = game.statistics.times_transfer > 0 ? "" : "none"
 		} else {
 			document.getElementById("tab_locked_files").style.display = "block"
@@ -40,14 +40,14 @@ function update_tab_on_switch(id) {
 		} else {
 			document.getElementById("tab_locked_computers").style.display = "block"
 			document.getElementById("tab_unlocked_computers").style.display = "none"
-			document.getElementById("total_file_boost_computers").innerHTML = "<b>Total multiplier on bit and byte productions</b>: " + format(get_total_file_boost(), 1) + "x"
+			document.getElementById("total_file_boost_computers").innerHTML = "<b>Total multiplier on bit and byte production</b>: " + format(get_total_file_boost(), 1) + "x"
 			document.getElementById("perm_unlock_computers").style.display = game.statistics.times_transfer > 0 ? "" : "none"
 		}
 	}
 	if (id == "transfer") {
 		var total = 0
 		if (game.computers.unlocked) for (var comp=1; comp<5; comp++) total += game.computers[comp].level
-		document.getElementById("total_computer_levels").innerHTML = "<b>Total computer levels</b>: " + total
+		document.getElementById("total_computer_levels").innerHTML = "<b>Total computer level</b>: " + total
 		if (game.statistics.times_transfer > 0) update_autobuyers()
 	}
 	if (id == "statistics") {
