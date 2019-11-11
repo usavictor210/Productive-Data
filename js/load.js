@@ -110,7 +110,7 @@ function export_save_safe() {
 }
 
 function import_save() {
-	var save_file = prompt("Please enter your exported save to import. WARNING: Your current save will be overwritten!")
+	var save_file = prompt("Please enter a savecode to import. WARNING: Your current save will be overwritten, so you might want to export beforehand!")
 	if (save_file !== null) {
 		load_game(save_file)
 		save_game()
@@ -119,7 +119,7 @@ function import_save() {
 }
 
 function hard_reset() {
-	if (!confirm("Hard resetting your save erases everything, including your options and statistics. ARE YOU REALLY WANT TO DO THIS? YOU CAN'T UNDO THIS!")) return
+	if (!confirm("WARNING: Hard resetting your save erases everything, including your options and statistics. Are you sure you want to hard reset? THIS PROVIDES NO REWARD.")) return
 	stop_interval()
 	produce()
 	game = get_default_player()
